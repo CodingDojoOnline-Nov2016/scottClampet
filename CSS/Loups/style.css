@@ -1,6 +1,6 @@
 
 .wrapper{
-	background-color: beige;
+	background-color: #f2f2f2;
 	width: 970px;
 	padding: 10px;
 
@@ -10,7 +10,7 @@
 	height: 80px;
 	margin: 15px;
 	padding: 15px;
-	background-color: silver;
+	background-color: Gainsboro;
 	display: inline-block;
 	border-radius: 25px;
 }
@@ -18,31 +18,36 @@
 	height: 350px;
 	width: 200px;
 	padding: 20px;
-	background-color: silver;
+	background-color: Gainsboro;
 	border-radius: 25px;
 	display: inline-block;
 	vertical-align: top;
 	margin-left: 15px;
 
 }
-#menu li{
-}
-ul.a{
-	list-style-type: circle;
-}
 #essays{
 	height: 400px;
 	width: 635px;
 	padding: 15px;
-	background-color: grey;
+	background-color: DarkGray;
 	border-radius: 25px;
 	display: inline-block;
 	margin-left: 20px;
 }
 #contact{
 	width: 910px;
-	padding: 15px;
-	background-color: silver;
+	padding: 20px 10px;
+	background-color: Gainsboro;
 	border-radius: 25px;
 	margin-top: 20px;
+}
+#menu a{
+	text-decoration: none;
+	
+}
+ul.a{
+	list-style-type: circle;
+}
+.bold{
+	font-weight: bold;
 }
