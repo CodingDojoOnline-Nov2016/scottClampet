@@ -1,13 +1,18 @@
+/* If you are not going to put anything in the global settings do not put it in your css code.*/
+
 *{
 
 }
+
 .container{
+	/* suggest not putting a height on your container. Let your content determine how high the container will be*/
 	height: 1070px;
 	width: 970px;
 	margin: 0px auto;
-	background-color: white; 
+	background-color: white;
 }
 #header{
+	/* first background not needed */
 	background: red;
 	background: linear-gradient(black,red);
 	border: solid;
@@ -27,8 +32,12 @@
 	display: inline-block;
 	margin-top: 35px;
 	vertical-align: top;
-	font-family: 
+	font-family:
 }
+	#powerTo p{
+		color: white;
+		font-size: 25px;
+	}
 #textSize{
 	height: 45px;
 	background-color: white;
@@ -36,12 +45,20 @@
 	display: inline-block;
 	margin-left: 100px;
 }
+	#textSize p{
+		color: white;
+	}
+	#textSize a{
+		color: #E6BD34;
+	}
 #search{
 	display: inline-block;
 	position: relative;
     bottom: 75px;
     left: 718px;
 }
+
+/* No id called button. This styling isnt doing anything */
 #button{
 	width: 50px;
 	display: inline-block;
@@ -51,32 +68,40 @@
     text-align: center;
     border: 1px solid #ccc;
 }
+
+/* because of no need for the inner div - just putting the styling on the one element. inline block would only been needed if using a <ul> <li> combination for the links*/
 .menu{
-	display: inline-block;
+	/*display: inline-block;*/
 	background: linear-gradient(#CBCBCB,white);
 	border: solid;
 	border-width: 1px;
 	border-color: lightgrey;
-	width: 968px;
+	color: grey;
+	padding-left: 50px;
+	/*width: 968px;*/
 }
-#menuItems{
+/*#menuItems{
 	padding-left: 50px;
 	display: inline-block;
 	color: grey;
-}
+}*/
 .index{
 	height: 200px;
 	width: 200px;
 	display: inline-block;
 	vertical-align: top;
 	background-color: #FEF0F1;
-	border: solid;
+	/* This should be written in one line */
+	border: 1px solid lightgrey;
+	/*border: solid;
 	border-width: 1px;
-	border-color: lightgrey;
+	border-color: lightgrey;*/
 	margin-left: 20px;
 	margin-top: 25px;
 	padding: 5px;
 }
+
+/* The following three classes have 3-4 of the same styling. This would be where you could wrap these in a class that could be shared with each section. */
 .introduction{
 	width: 700px;
 	display: inline-block;
@@ -99,19 +124,10 @@
 	margin-left: 254px;
 	background-color: white;
 }
-#powerTo p{
-	color: white;
-	font-size: 25px;
-}
-#textSize p{
-	color: white;
-}
-#textSize a{
-	color: #E6BD34;
-}
+
 li, p{
 	font-size: 14px;
 }
 a, h1, h5{
-	color: DarkRed;
+	color: darkred;
 }
