@@ -1,198 +1,144 @@
 * {
+	font-family: sans-serif;
 	padding: 0px;
 	margin: 0px;
-	font-family: verdana, sans-serif;
-	border: 0px;
 }
-.container{
+
+.container {
+	width: 970px;
 	margin: 0 auto;
-	height: 870px;
-	background: -webkit-radial-gradient(circle, #575555, #2A2929); 
-	width: 970px;
 }
-#head{
-	height: 80px;
-	background: linear-gradient(grey,white);
+
+.bold {
+	font-weight: bold;
 }
-	#heads1{
-		margin-left: 20px;
+
+.head {
+	background: #E6E6E6; 
+	padding: 0px 15px 2px 15px;
+	border-style: bold;
+	border-width: 2px;
+	border-color: darkgrey;
+}
+
+	.head *{
 		display: inline-block;
 	}
-	#heads2{
-		display: inline-block;
-		font-size: 10px;
-		content: DarkGrey;
-		margin-left: 240px;
-		position: relative;
-		bottom: 20px;
-}
-#mainMenu{
-	display: inline-block;
-	background: #E5E5E5;
-	height: 65px;
-	width: 970px;
 
-}
-	#navBar{
-		padding: 5px 20px;
-		background: linear-gradient(white,#DAD8F0);
+	.head h1{
+		font-size: 15pt;
+		vertical-align: top;
+		margin-left: 230px;
+		margin-top: 35px;
 	}
-		#navBar ul li{
-			color: grey;
-			font-size: 14px;
-			list-style-type: none;
-			display: inline-block;
-			padding: 0px 10px 5px 15px;
-			margin-left: 20px;
-		}
-		#navBar li~li{
-			border-left: solid 1px darkgrey;
-		}
-.body{
-	 background: -webkit-radial-gradient(circle, #575555, #2A2929);
 
+.menu {
+	background: white;
 }
-#mainImg{
-	display: inline-block;
-	margin-left: 30px;
-	margin-top: 20px;
-	border-style: solid;
-	border-width: 5px;
-	border-color: white;
+
+.navBar {
+	background: #E6E6E6; 
+	border-top: solid;
+	padding: 0px 25px;
 }
-#about{
+
+	.navBar a{
+	text-decoration: none;
+	color: grey;
+	}
+	.navBar li {
+		display: inline-block;
+		background: transparent;
+		padding: 10px 20px;
+		font-size: 8pt;
+		border: solid;
+		border-color: darkgrey;
+		border-width: 2px;
+	}
+
+.menu img {
+	margin-left: 15px;
+}
+
+.body {
+	background: radial-gradient(#494949, #1E1E1E); 
+	padding: 20px 25px;
+}
+
+.mainBody {
+	width: 490px;
+	height: 260px;
+	background: rgba(255, 255, 255, 0.1);
 	display: inline-block;
-	height: 300px;
-	width: 500px;
-	margin-top: 20px;
-	vertical-align: top;
+	margin-left: 20px;
 	color: white;
 }
-	#aboutInfo{
-		height: 246px;
-		display: inline-block;
-		padding: 10px;
-		background: linear-gradient(to right,#434343,#313131);
-		opacity: 0.8;
-		font-size: 12px;
-	}
-	#aboutHead{
-		height: 35px;
-		padding: 5px;
-		background: #ECC70D;
-		color: black;
-		font-size: 8px;
-	}
-	#aboutInfo h1{
-		font-size: 16px;
-	}
-#snipBit{
-	display: inline-block;
-	margin: 10px 40px;
-	color: lightyellow;
-}
-	#snipBit p{
-		display: inline-block;
-		font-size: 10px;
-		color: #ECC70D;
-		text-align: center;
-	}
-#services{
-	display: inline-block;
-	background: white;
-}
-#auto{
-	vertical-align: top;
-	height: 270px;
-	width: 227px;
-	margin-left: 30px;
-	background: white;
-	display: inline-block;
-	font-size: 10px;
-}
-	#auto p, h6{
-		padding: 10px;
-	}
-	#auto h6{
-		text-align: right;
-		font-size: 10px;
-		margin: 9px;
-	}
-	#autoHead h1{ 
-		padding: 5px;
-		font-size: 10px;
-		background: #ECC70D;
-	}
-#commercial{
-	vertical-align: top;
-	height: 270px;
-	width: 227px;
-	display: inline-block;
-	background: white;
-	font-size: 10px;
-}
-	#commercial p, h6{
-		padding: 10px;
-	}
-	#commercial h6{
-		text-align: right;
-		font-size: 10px;
-		margin: 9px;
-	}
-	#commHead h1{
-		padding: 5px;
-		font-size: 10px;
-		background: #ECC70D;
-	}
-#industrial{
-	vertical-align: top;
-	height: 270px;
-	width: 227px;
-	display: inline-block;
-	background: white;
-	font-size: 10px;
-}
-	#industrial p, h6{
-		padding: 10px;
-	}
-	#industrial h6{
-		text-align: right;
-		font-size: 10px;
-		margin: 9px;
-	}
-	#indHead h1{
-		padding: 5px;
-		font-size: 10px;
-		background: #ECC70D;
-	}
-#diesel{
-	vertical-align: top;
-	height: 270px;
-	width: 227px;
-	display: inline-block;
-	background: white;
-	// font-size: 10px;
-}
-	#diesel p{
-		padding: 10px;
-		font-size: 9.5px
-	}
-	#diesel h6{
-		text-align: right;
-		font-size: 9px;
-		margin: 10px;
-		padding: 10px;
-	}
-	#dieselHead h1{
-		padding: 5px;
-		font-size: 10px;
-		background: #ECC70D;
-	}
-#read{
-	height: 47px;
-	margin-left: 116px;
-	background: #ECC70D;
-	border: 1px solid black;
-	border-radius: 25px;
 
+	.mainBody .text {
+		padding: 5px;
+	}
+
+	.mainBody p {
+		font-size: 9pt;
+		margin-top: 15px;
+	}
+#mainPic {
+	vertical-align: top;
+	border: solid white 6px;
 }
+.header {
+	background: #F6C421; 
+    padding: 10px;
+    border: solid black 0.1px;
+    font-size: 10pt;
+    color: black;
+}
+
+#miniLogo {
+	height: 10px;
+	margin: 10px;
+}
+
+.extraInfo {
+	color: #b2b266;
+	margin-left: 10px;
+	margin-top: 10px;
+	font-size: 8pt;
+	vertical-align: top;
+	display: inline-block;
+}
+
+.subContent {
+	display: inline-block;
+	background: white; 
+    width: 220px;
+    vertical-align: top;
+    margin-left: 2px;
+}
+	.subContent .header {
+		font-size: 10pt;
+	}
+	.subContent p {
+	font-size: 8pt;
+	min-height: 60px;
+	}
+
+	.subContent img {
+		width: 222px;
+		height: 101px;
+	}
+
+	.subContent .text {
+		padding: 5px;
+	}
+
+	.subContent button {
+		margin-top: 5px;
+		margin-left: 110px;
+		width: 95px;
+		font-size: 7pt;
+		background: #F6C421;
+		border-style: bold;
+		border-color: black;
+		border-width: 2px;
+	}
