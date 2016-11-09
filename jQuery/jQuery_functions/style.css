@@ -1,0 +1,33 @@
+*{
+	font-family: sans-serif;
+	padding: 0px;
+	margin: 0px;
+}
+.wrapper{
+	width: 970px;
+	display: inline-block;
+	background: silver;
+	margin: 0px auto;
+	padding: 10px;
+	border: 2px solid black;
+}
+#row{
+	width: 970px;
+	margin: 0 auto;
+	border-bottom: 2px solid black;
+}
+#text{
+	display: inline-block;
+	margin-left: 200px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+	#text h1{
+		margin-bottom: 20px;
+	}
+.add{
+	padding: 5px;
+}
+.red{
+	background: red;
+}

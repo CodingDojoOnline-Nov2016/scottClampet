@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My jQuery Assignment</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('#addClass').click(function(){
+					$('p').toggleClass('red');
+				});
+				$('#slidetoggle').click(function(){
+					$('p').slideToggle('slow',function(){
+						//animation complete.
+					});
+				});
+				$('#append').click(function(){
+					$('h1').append('!');
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div id="row">
+				<button type="button" class="add" id="addClass">AddClass</button>
+				<div id="text">
+					<h1>AddClass</h1>
+					<p>Click the button to add class 'red' to this paragraph</p>
+				</div>
+			</div>
+			<div id="row">
+				<button type="button" class="add" id="slidetoggle">Slidetoggle</button>
+				<div id="text">
+					<h1>Slidetoggle</h1>
+					<p>Click the button to slidetoggle a hidden image</p>
+				</div>
+			</div>
+			<div id="row">
+				<button type="button" class="add" id="append">Append</button>
+				<div id="text">
+					<h1>Append</h1>
+					<p>Click the button to append a new paragraph!</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
