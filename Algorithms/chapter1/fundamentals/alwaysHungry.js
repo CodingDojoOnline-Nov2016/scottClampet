@@ -5,18 +5,17 @@
 
 function alwaysHun(arr){
 	var i = 0;
-	var foodCount = 0;
 
 	while(i < arr.length){
 		if(arr[i] == "food"){
 			console.log("yummy");
-			foodCount++
+			var full = true;
 			i++;
 		} else {
 			i++
 		}
 	}
-	if(foodCount === 0){
+	if(!full){
 		return "I'm hungry";
 	}
 }

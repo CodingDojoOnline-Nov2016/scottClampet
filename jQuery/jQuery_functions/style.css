@@ -3,6 +3,13 @@
 	padding: 0px;
 	margin: 0px;
 }
+span{
+	display: none;
+}
+img{
+	display: inline-block;
+	vertical-align: top;
+}
 .wrapper{
 	width: 970px;
 	display: inline-block;
@@ -26,8 +33,13 @@
 		margin-bottom: 20px;
 	}
 .add{
+	width: 90px;
 	padding: 5px;
 }
 .red{
 	background: red;
+}
+.data{
+	display: inline-block;
+	width: 10px;
 }
