@@ -12,3 +12,19 @@ function zeroOut(arr){
 
 var array = [-1,-4,33,4,-6];
 zeroOut(array);
+
+// Second iteration using while loop.
+
+function zeroOut2(arr){
+	var i = 0;
+	while(i < arr.length){
+		if(arr[i] < 0){
+			arr[i] = 0;
+		}
+		i++;
+	}
+	return arr;
+}
+
+var array = [-1,-4,33,4,-6];
+zeroOut2(array);

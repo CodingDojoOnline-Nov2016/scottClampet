@@ -3,7 +3,17 @@
 // at the end.
 
 function shiftArray(arr){
+	var count = 0;
 	for(var i = 0; i < arr.length; i++){
-		s
+		arr[i] += count;
+		count++
 	}
+	return arr;
 }
+
+var array = [1,2,3,4];
+shiftArray(array);
+
+// Second iteration using while loop.
+
+function shift

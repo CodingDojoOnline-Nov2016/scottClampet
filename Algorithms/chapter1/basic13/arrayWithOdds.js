@@ -3,7 +3,7 @@
 
 function arrayWithOdds(){
 	var newArr = [];
-	for(var i = 2; i <= 255; i++)
+	for(var i = 1; i <= 255; i++)
 		if(i % 2 !== 0){
 			newArr.push(i);
 		}
@@ -11,3 +11,20 @@ function arrayWithOdds(){
 }
 
 arrayWithOdds();
+
+// Second iteration using while loop.
+
+function arrayWithOdds2(){
+	var newArray = [];
+	var i = 1;
+	while(i < 256){
+		if(i % 2 !== 0){
+			newArray.push(i);
+		}
+		i++;
+	}
+	return newArray;
+}
+
+arrayWithOdds2();
+

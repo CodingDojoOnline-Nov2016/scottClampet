@@ -8,3 +8,15 @@ function print1To255(){
 
 print1To255();
 
+// Second iteration using while loop.
+
+function print1To2552(){
+	var i = 1;
+	while(i < 256){
+		console.log(i);
+		i++;
+	}
+}
+
+print1To2552();
+
