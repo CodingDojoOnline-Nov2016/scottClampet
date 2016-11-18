@@ -7,7 +7,7 @@ $(document).ready(function(){
 			"description": $('#description').val()
 		}
 		var $ele  = $('<div></div>')
-		$ele.html('<h2>'+fields.firstName+' '+fields.lastName+'</h2><p>'+fields.description+'</p>');
+		$ele.html('<h2>'+fields.firstName+' '+fields.lastName+'</h2><p>'+fields.description+'</p>	');
 		$('.cards').append($ele);
 		$('input:first-child, input:nth-child(2), textarea').val(null);
 
