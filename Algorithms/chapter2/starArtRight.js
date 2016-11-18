@@ -11,13 +11,14 @@
 // characters should be asterisks; the other 75 should be spaces.
 
 function drawRightStars(num){
-	var textfield = " ";
+	var starString = " "
+	var spaces = 75 - num;
 	while(textfield.length <= 75){
 		if(num > 0){
-			textfield += " " - 75;
+			textfield += "*";
 			num-=1;
 		} else {
-			textfield += "*";
+			textfield += " ";
 		}
 	}
 	return textfield;

@@ -4,7 +4,7 @@
 // the 1+0 = 1;
 
 function sumToOne(num){
-	if(num.toString().length === 1){
+	if(num < 10){
 		return num;
 	}
 	num += "";
@@ -12,19 +12,14 @@ function sumToOne(num){
 	for(var i = 0; i < num.length; i+=1){
 		arr.push(num.charAt(i));
 	}
-	// console.log(arr);
+	console.log(arr);
 	var sum = 0;
 	for(var i = 0; i < arr.length; i++){
 		parseInt(arr[i]);
 		sum += parseInt(arr[i]);
 	}
-	// console.log(sum);
-	// console.log((sum+="").length);
-	if(sum.toString().length > 1){
-		return sumToOne(sum);
-	} else {
-		return parseInt(sum);
-	}
+	console.log(sum);
+	return sumToOne(sum);
 }
 
 sumToOne(245);
