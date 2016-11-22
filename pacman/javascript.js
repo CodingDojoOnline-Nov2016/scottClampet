@@ -29,4 +29,5 @@ var displayWorld = function(){
 	// console.log(output);
 	document.getElementById('world').innerHTML = output;
 }
-displayWorld();
+// Calling the function here breaks. 
+// displayWorld();
