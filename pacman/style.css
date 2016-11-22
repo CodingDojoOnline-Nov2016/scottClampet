@@ -1,3 +1,20 @@
+*{
+	padding: 0px;
+	margin: 0px;
+	font-size: 0;
+}
+div#score{
+	border: 1px solid white;
+	width: 30px;
+	height: 20px;
+	color: white;
+	padding: 7px;
+	text-align: center;
+	font-size: 12px;
+	position: absolute;
+	top: 10px;
+	left: 210px;
+}
 body{
 	background-color: black;
 }
@@ -15,11 +32,14 @@ div.coin{
 	background-position: center;
 }
 div.empty{
-	background: none;
+
 }
-div.pacman{
+div#pacman{
 	background: url('./images/pacman.gif');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
+	width: 20px;
+	height: 20px;
+	position: absolute;
 }
