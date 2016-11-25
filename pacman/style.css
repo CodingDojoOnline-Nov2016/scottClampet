@@ -43,3 +43,18 @@ div#pacman{
 	height: 20px;
 	position: absolute;
 }
+div.ghost1 {
+	height: 20px;
+	width: 20px;
+	background: url('./images/ghost1.gif')
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	position: absolute;
+}
+div.cherry{
+	background: url('./images/cherry.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}

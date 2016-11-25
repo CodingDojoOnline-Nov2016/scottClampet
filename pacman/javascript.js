@@ -1,19 +1,23 @@
 $(document).ready(function(){
 	var world = [
 			[2,2,2,2,2,2,2,2,2,2],
+			[2,3,1,1,1,1,1,1,3,2],
 			[2,1,1,1,1,1,1,1,1,2],
 			[2,1,1,1,1,1,1,1,1,2],
 			[2,1,1,1,1,1,1,1,1,2],
 			[2,1,1,1,1,1,1,1,1,2],
 			[2,1,1,1,1,1,1,1,1,2],
 			[2,1,1,1,1,1,1,1,1,2],
-			[2,1,1,1,1,1,1,1,1,2],
-			[2,1,1,1,1,1,1,1,1,2],
+			[2,3,1,1,1,1,1,1,3,2],
 			[2,2,2,2,2,2,2,2,2,2]
 		];
 	var pacman = {
 		x: 1,
 		y: 1
+	};
+	var ghost1 = {
+		x: 0,
+		y: 0
 	};
 	var score = 0;
 
@@ -27,8 +31,10 @@ $(document).ready(function(){
 					output += "<div class='brick'></div>";
 				else if (world[i][j] == 1)
 					output += "<div class='coin'></div>";
-				if(world[i][j] == 0)
+				else if(world[i][j] == 0)
 					output += "<div class='empty'></div>";
+				else if(world[i][j] == 3)
+					output += "<div class='cherry'></div>";
 			}
 			output += "\n</div>";
 		}
@@ -38,6 +44,13 @@ $(document).ready(function(){
 	function displayPacman(){
 		document.getElementById('pacman').style.top = pacman.y*20+"px"
 		document.getElementById('pacman').style.left = pacman.x*20+"px"
+	}
+	function displayGhost1(){
+		document.getElementById('ghost1').style.top = ghost1.y*20+"px"
+		document.getElementById('ghost1').style.left = ghost1.x*20+"px"
+	}
+	function moveGhost1(){
+		var random = Math.floor(Math.random() * 4) * 37;
 	}
 	function displayScore(){
 		document.getElementById('score').innerHTML = score
@@ -64,10 +77,14 @@ $(document).ready(function(){
 		if(world[pacman.y][pacman.x] == 1){
 			world[pacman.y][pacman.x] = 0;
 			score += 10;
-			displayWorld();
-			displayScore();
+		} 
+		else if (world[pacman.y][pacman.x] == 3){
+			world[pacman.y][pacman.x] = 0;
+			score += 500;
 		}
-		console.log(e.keyCode);
-		displayPacman();
+			displayScore();
+			displayScore();
+			displayGhost1();
+			displayPacman();
 	}
 })	
