@@ -51,6 +51,8 @@ $(document).ready(function(){
 	}
 	function moveGhost1(){
 		var random = Math.floor(Math.random() * 4) * 37;
+
+		
 	}
 	function displayScore(){
 		document.getElementById('score').innerHTML = score
