@@ -9,9 +9,9 @@
 
 
 def scores_and_grades():
-	print "Scores and Grades"
+	print "Scores and Grades - Please enter your score"
 	for num in range(10):
-		score = raw_input()
+		score = int(raw_input())
 		if(int(score) >= 90):
 			grade = "A"
 		elif(int(score) >= 80):
@@ -21,7 +21,7 @@ def scores_and_grades():
 		elif(int(score) >= 60):
 			grade = "D"
 		else:
-			grade = "Are you sure you entered a real number?!?"
+			grade = "...well...let's just not talk about it."
 		print "Score: ",score,"; Your grade is ",grade
 	print "End of program. Bye!"
 scores_and_grades()
