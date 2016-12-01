@@ -16,12 +16,12 @@ def get_matching_words(regex):
 
 	return [word for word in words if re.search(regex, word)]
 
-print get_matching_words('v')
-print get_matching_words('ss')
-print get_matching_words('e$')
-print get_matching_words('b.b')
-print get_matching_words('b.+b')
-print get_matching_words('b.*b')
-print get_matching_words('aeiou')
-print get_matching_words('[a-zA-z]')
-print get_matching_words(r'(.)\1')
+print get_matching_words(r'v')
+print get_matching_words(r'ss')
+print get_matching_words(r'e$') #ends with an e
+print get_matching_words(r'b.b') #dinds one letter in between
+print get_matching_words(r'b.+b') #at least one character between
+print get_matching_words(r'b.*b') #any number of character between
+print get_matching_words(r'aeiou') #all five vowels in order
+print get_matching_words(r'[a-zA-z]') #only uses letter in regex expression
+print get_matching_words(r'(.)\1') #any word containg a double letter
