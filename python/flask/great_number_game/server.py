@@ -6,7 +6,7 @@ import random
 
 @app.route('/')
 def index():
-	if session['rand'] == None:
+	if 'rand' not in session:
 		session['rand'] = random.randrange(0,101)
 	else:
 		pass
@@ -18,21 +18,23 @@ def index():
 def user_guess():
 	print "Got Post Info"
 
-	session['guess'] = int(request.form['guess'])		
+	session['guess'] = int(request.form['guess'])
+	guess = session['guess']		
 	
 
 	if(session['guess'] > session['rand']):
-		session['result'] = ' is too high!'
+		session['result'] = 1
 	elif(session['guess'] < session['rand']):
-		session['result'] = ' is too low!'
+		session['result'] = 0
 	else:
-		session['result'] = ' is exactly what I had in mind!'
+		session['result'] = 2
+
+	print 'rand number:', session['rand'], ',', session['result']
 
 	return redirect('/')
 
 @app.route('/reset')
 def reset():
-	print 'rand number:', session['rand'], ',', session['result']
 	session.clear()
 	return redirect('/')
 

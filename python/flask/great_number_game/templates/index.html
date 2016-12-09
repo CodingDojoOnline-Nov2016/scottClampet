@@ -8,7 +8,23 @@
 		<h1>Welcome to the {{title}}!</h1>
 		<h3>I am thinking of a number between 1 and 100</h3>
 		<h3>Take a guess!</h3>
-		<p>{{session['guess']}} {{session['result']}}</p>
+		{% if not session['result'] or session['result'] < 2 %}
+			{% if session['result'] == 1%}
+				<div id="answer-container" class="incorrect">
+					<p>{{ session['guess'] }} Too Low!</p>
+				</div>
+			{% endif %}
+			{% if session['result'] == 0 %}
+				<div id="answer-container" class="incorrect">
+					<p>{{ session['guess'] }} Too High!</p>
+				</div>
+			{% endif %}
+		{% endif %}
+		{% if session['result'] == 2%}
+			<div id="answer-container" class="correct">
+				<p>On the money!!</p>
+			</div>
+		{% endif %}
 		<form method="post" action="/guess">
 			<input type="text" name="guess" placeholder="Your Guess Here">
 			<input type="submit" value="Submit">
