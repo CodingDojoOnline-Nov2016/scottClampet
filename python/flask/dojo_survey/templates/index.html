@@ -9,6 +9,13 @@
 		<h1>Dojo Survey</h1>
 		<h3>Fill out the form!</h3>
 		<div class="wrapper">
+			{% with messages = get_flashed_messages() %}
+				{% if messages%}
+					{% for message in messages%}
+						<p>{{message}}</p>
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
 			<form method="post" action="/result">
 				Your Name: <input type="text" name="name">
 				Dojo Location: <select name="location">
