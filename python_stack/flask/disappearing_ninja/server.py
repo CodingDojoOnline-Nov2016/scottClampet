@@ -11,7 +11,6 @@ def ninjas():
 
 @app.route('/ninjas/<ninja_color>')
 def show_ninja(ninja_color):
-
 	return render_template('index.html', color=ninja_color, allNinjas=False)
 
 app.run(debug=True)
