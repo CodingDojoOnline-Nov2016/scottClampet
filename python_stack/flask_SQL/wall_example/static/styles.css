@@ -1,9 +1,11 @@
-.red{
-	color: red;
+.errors{
+	background-color: red;
+	color: white;
 	display: inline-block;
 }
-.green{
-	color: green;
+.success{
+	background-color: green;
+	color: white;
 	display: inline-block;
 }
 a{

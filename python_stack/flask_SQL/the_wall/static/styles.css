@@ -1,12 +1,12 @@
-.red{
+a{
+	text-decoration: none;
+	display: inline-block;
+}
+.errors{
 	color: red;
 	display: inline-block;
 }
-.green{
+.success{
 	color: green;
-	display: inline-block;
-}
-a{
-	text-decoration: none;
 	display: inline-block;
 }
