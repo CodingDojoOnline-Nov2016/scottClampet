@@ -4,6 +4,11 @@
 		<title></title>
 	</head>
 	<body>
-		<h1>Index Yay!</h1>
+		{{request.session.name}}
+		<form action="/new_users" method="POST">
+			{% csrf_token %}
+			<input type="text" name="first_name">
+			<input type="submit" value="Submit">
+		</form>
 	</body>
 </html>
