@@ -1,7 +1,7 @@
-class Animal():
-	def __init__(self, name, health=100):
+class Animal(object):
+	def __init__(self, name):
 		self.name = str(name)
-		self.health = health
+		self.health = 100
 
 	def walk(self):
 		self.health -= 1
@@ -16,6 +16,6 @@ class Animal():
 		print 'Health: ', self.health
 		return self
 
-# jax = Animal('jax')
-# jax.walk().walk().walk().run().run().displayHealth()
+jax = Animal('jax')
+jax.walk().walk().walk().run().run().displayHealth()
 
