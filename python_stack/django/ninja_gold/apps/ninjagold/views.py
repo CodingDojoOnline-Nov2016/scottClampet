@@ -11,6 +11,7 @@ def index(request):
 	else:
 		pass
 
+	#for displaying activities
 	if 'action' not in request.session:
 		request.session['action'] = []
 
@@ -25,11 +26,12 @@ def process(request):
 	request.session['building'] = request.POST['building']
 	building = request.session['building']
 
-	#check which form
+	#reset counter and activities list
 	if building == 'reset':
 		request.session['count'] = 0
 		request.session['action'] = []
 
+	#check which form
 	if building == 'farm':
 		farm_gold = int(random.randrange(10,21))
 		request.session['count'] += farm_gold
@@ -61,7 +63,10 @@ def process(request):
 	return redirect('/')
 
 def addAction(request, num, action, place):
+	#to display proper current date format
 	timestamp = datetime.datetime.now()
+
+	#insert relative activity info into action list
 	if place == 'farm':
 		request.session['action'].insert(0,['earn', 'Earned %d from the %s! %s' % (num, place, timestamp)])
 	if place == 'cave':
