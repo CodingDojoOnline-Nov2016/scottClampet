@@ -11,12 +11,15 @@ def index(req):
 def submit(req):
 	email = req.POST['email']
 
-	if User.objects.isValidEmail(email):
-		User.objects.create(email=email)
-		messages.success(req, email + ' is a valid email!')
-		return redirect('/success')
+	if req.method == 'POST':
+		if User.objects.isValidEmail(email):
+			User.objects.create(email=email)
+			messages.success(req, email + ' is a valid email!')
+			return redirect('/success')
+		else:
+			messages.warning(req, 'Invalid Email!')
+			return redirect('/')
 	else:
-		messages.error(req, 'Invalid Email!')
 		return redirect('/')
 
 def success(req):
