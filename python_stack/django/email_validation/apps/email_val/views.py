@@ -11,8 +11,8 @@ def index(req):
 def submit(req):
 	email = req.POST['email']
 
-	if User.manager.isValidEmail(email):
-		User.manager.create(email=email)
+	if User.objects.isValidEmail(email):
+		User.objects.create(email=email)
 		messages.success(req, email + ' is a valid email!')
 		return redirect('/success')
 	else:
@@ -22,7 +22,7 @@ def submit(req):
 def success(req):
 	context = {
 		'title': 'Current Emails',
-		'emails': User.manager.all()
+		'emails': User.objects.all()
 	}
 
 	return render(req, 'email_val/success.html', context)
