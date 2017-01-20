@@ -2,9 +2,10 @@
 
 function bubbleSort(arr){
 	var swapped = true;
+	var len = arr.length - 1;
 	while(swapped){
 		swapped = false
-		for(var i = 0; i < arr.length - 1; i++){
+		for(var i = 0; i < len; i++){
 			if(arr[i] > arr[i + 1]){
 				temp = arr[i];
 				arr[i] = arr[i + 1];
