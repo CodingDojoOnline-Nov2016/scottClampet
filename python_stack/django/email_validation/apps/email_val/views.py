@@ -9,9 +9,8 @@ def index(req):
 	return render(req, 'email_val/index.html', context)
 
 def submit(req):
-	email = req.POST['email']
-
 	if req.method == 'POST':
+		email = req.POST['email']
 		if User.objects.isValidEmail(email):
 			User.objects.create(email=email)
 			messages.success(req, email + ' is a valid email!')
@@ -21,6 +20,7 @@ def submit(req):
 			return redirect('/')
 	else:
 		return redirect('/')
+
 
 def success(req):
 	context = {
