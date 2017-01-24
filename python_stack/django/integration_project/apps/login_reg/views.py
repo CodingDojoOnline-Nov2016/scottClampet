@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
+from django.core.urlresolvers import reverse
 from .models import User
 
 # Create your views here.
@@ -11,21 +12,31 @@ def index(request):
 
 def login(request):
 	if request.method == 'POST':
-		if User.objects.userExistsLogin(request.POST, request):
-			isValid = True
-			return redirect('/success')
+
+		valid, response = User.objects.userExistsLogin(request.POST)
+
+		if not valid:
+			for error in response:
+				messages.error(request, error)
+			return redirect(reverse('users:index'))
 		else:
-			isValid = False
-			return redirect('/')
+			return redirect(reverse('courses:index'))
+	else:
+		return redirect(reverse('users:index'))
 
 def register(request):
 	if request.method == 'POST':
-		if User.objects.validRegistration(request.POST, request):
-			isValid = True
-			return redirect('/success')
+
+		valid, response = User.objects.validRegistration(request.POST)
+
+		if not valid:
+			for error in response:
+				messages.error(request, error)
+			return redirect(reverse('users:index'))
 		else:
-			isValid = False
-			return redirect('/')
+			return redirect(reverse('users:index'))
+	else:
+		return redirect(reverse('users:index'))
 
 def success(request):
 	context = {

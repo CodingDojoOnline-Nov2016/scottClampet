@@ -10,64 +10,62 @@ EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]*$')
 
 # Create your models here.
 class Manager(models.Manager):
-	def validRegistration(self, userInfo, request):
+	def validRegistration(self, userInfo):
 		#registration form validations
-		isValid= True
+		errors = []
 		if not userInfo['first_name'].isalpha():
-			messages.error(request, 'First name must only contain letters!')
-			isValid = False
+			errors.append('First name must only contain letters!')
 		if len(userInfo['first_name']) < 1:
-			messages.error(request, 'Please put a first name!')
-			isValid = False
+			errors.append('Please put a first name!')
 
 		if not userInfo['last_name'].isalpha():
-			messages.error(request, 'Last name must only contain letters!')
-			isValid = False
+			errors.append('Last name must only contain letters!')
 		if len(userInfo['last_name']) < 1:
-			messages.error(request, 'Please put a last name!')
-			isValid = False
+			errors.append('Please put a last name!')
 
 		if not EMAIL_REGEX.match(userInfo['email']):
-			messages.error(request, 'Must be a valid email!')
-			isValid = False
+			errors.append('Must be a valid email!')
 		if len(userInfo['email']) < 1:
-			messages.error(request, 'Please put a valid email!')
-			isValid = False
+			errors.append('Please put a valid email!')
 		if User.objects.filter(email=userInfo['email']):
-			messages.error(request, 'A user with that email already exists!')
-			isValid = False
+			errors.append('A user with that email already exists!')
 
 		if len(userInfo['password']) < 8:
-			messages.error(request, 'Password must be at least 8 characters long!')
-			isValid = False
+			errors.append('Password must be at least 8 characters long!')
 		if userInfo['password'] != userInfo['confirm']:
-			messages.error(request, 'Passwords do not match!')
-			isValid = False
+			errors.append('Passwords do not match!')
 
-		if isValid == True:
-			messages.success(request, 'Great! Thanks for registering '+userInfo['first_name']+'!')
-			hashed = bcrypt.hashpw(userInfo['password'].encode(), bcrypt.gensalt())
-			User.objects.create(first_name=userInfo['first_name'], last_name=userInfo['last_name'], email=userInfo['email'], pw_hash=hashed)
-		return isValid
-
-	def userExistsLogin(self, userInfo, request):
-		#check to see if user already exists
-		isValid = True
-		if User.objects.filter(email=userInfo['email']):
-			hashed = User.objects.get(email=userInfo['email']).pw_hash
-			hashed = hashed.encode('utf-8')
-			password = userInfo['password']
-			password = password.encode('utf-8')
-			if bcrypt.hashpw(password, hashed) == hashed:
-				messages.success(request, 'Success! Welcome, '+User.objects.get(email=userInfo['email']).first_name+'!')
-				isValid = True
-			else:
-				messages.error(request, 'Invalid password!')
-				isValid = False
+		if errors:
+			return (False, errors)
 		else:
-			messages.error(request, 'Invalid Email!')
-			isValid = False
-		return isValid
+			errors.append('Great! Thanks for registering '+userInfo['first_name']+'!')
+			hashed = bcrypt.hashpw(userInfo['password'].encode(), bcrypt.gensalt())
+			user = User.objects.create(first_name=userInfo['first_name'], last_name=userInfo['last_name'], email=userInfo['email'], pw_hash=hashed)
+			return (True, user)
+
+	def userExistsLogin(self, userInfo):
+		#check to see if user already exists
+		errors = []
+		if len(userInfo['email']) < 1 or len(userInfo['password']) < 1:
+			errors.append('Please fill in both an email and password!')
+
+		if not EMAIL_REGEX.match(userInfo['email']):
+			errors.append('Make sure you have a valid email!')
+
+		if errors:
+			return (False, errors)
+		else:
+			if User.objects.filter(email=userInfo['email']):
+				hashed = User.objects.get(email=userInfo['email']).pw_hash.encode()
+				password = userInfo['password'].encode()
+				if bcrypt.hashpw(password, hashed) == hashed:
+					errors.append('Success! Welcome, '+User.objects.get(email=userInfo['email']).first_name+'!')
+				else:
+					errors.append('Invalid password!')
+			else:
+				errors.append('Invalid Email!')
+		
+
 
 
 class User(models.Model):

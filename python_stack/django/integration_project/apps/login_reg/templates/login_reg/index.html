@@ -9,8 +9,13 @@
 	</head>
 	<body>
 		<div id="login-box">
+			{% if messages %}
+				{% for msg in messages %}
+					<h5 class="errors">{{ msg }}</h5>
+				{% endfor %}
+			{% endif %}
 			<h3>Login</h3>
-			<form action="/login" method="POST">
+			<form action="{% url 'users:login' %}" method="POST">
 				{% csrf_token %}
 				<input type="text" name="email" placeholder="kmichael@rnm.com">
 				<input type="password" name="password" placeholder="********">
@@ -19,12 +24,7 @@
 		</div>
 		<div id="register-box">
 			<h3>Registration</h3>
-			{% if messages %}
-				{% for msg in messages %}
-					<h5 class="errors">{{ msg }}</h5>
-				{% endfor %}
-			{% endif %}
-			<form action="/register" method="POST">
+			<form action="{% url 'users:register' %}" method="POST">
 				{% csrf_token %}
 				<label>First Name:</label>
 				<input type="text" name="first_name" placeholder="Krombobpulos">
