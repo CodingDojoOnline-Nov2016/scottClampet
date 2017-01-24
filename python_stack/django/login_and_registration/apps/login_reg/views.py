@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
+from django.core.urlresolvers import reverse
 from .models import User
 
 # Create your views here.
@@ -17,11 +18,11 @@ def login(request):
 		if not valid:
 			for error in response:
 				messages.error(request, error)
-			return redirect('/')
+			return redirect(reverse('users:index'))
 		else:
-			return redirect('/success')
+			return redirect(reverse('users:success'))
 	else:
-		return redirect('/')
+		return redirect(reverse('users:index'))
 
 def register(request):
 	if request.method == 'POST':
@@ -31,11 +32,11 @@ def register(request):
 		if not valid:
 			for error in response:
 				messages.error(request, error)
-			return redirect('/')
+			return redirect(reverse('users:index'))
 		else:
-			return redirect('/success')
+			return redirect(reverse('users:success'))
 	else:
-		return redirect('/')
+		return redirect(reverse('users:index'))
 
 def success(request):
 	context = {
