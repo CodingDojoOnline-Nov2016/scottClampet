@@ -11,21 +11,31 @@ def index(request):
 
 def login(request):
 	if request.method == 'POST':
-		if User.objects.userExistsLogin(request.POST, request):
-			doesExist = True
-			return redirect('/success')
-		else:
-			doesExist = False
+
+		valid, response = User.objects.userExistsLogin(request.POST)
+
+		if not valid:
+			for error in response:
+				messages.error(request, error)
 			return redirect('/')
+		else:
+			return redirect('/success')
+	else:
+		return redirect('/')
 
 def register(request):
 	if request.method == 'POST':
-		if User.objects.validRegistration(request.POST, request):
-			isValid = True
-			return redirect('/success')
-		else:
-			isValid = False
+
+		valid, response = User.objects.validRegistration(request.POST)
+
+		if not valid:
+			for error in response:
+				messages.error(request, error)
 			return redirect('/')
+		else:
+			return redirect('/success')
+	else:
+		return redirect('/')
 
 def success(request):
 	context = {
