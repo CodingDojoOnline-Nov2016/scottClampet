@@ -12,10 +12,10 @@ def index(request):
 def login(request):
 	if request.method == 'POST':
 		if User.objects.userExistsLogin(request.POST, request):
-			isValid = True
+			doesExist = True
 			return redirect('/success')
 		else:
-			isValid = False
+			doesExist = False
 			return redirect('/')
 
 def register(request):

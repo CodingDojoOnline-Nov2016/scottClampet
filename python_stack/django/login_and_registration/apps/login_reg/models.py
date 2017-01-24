@@ -52,22 +52,22 @@ class Manager(models.Manager):
 
 	def userExistsLogin(self, userInfo, request):
 		#check to see if user already exists
-		isValid = True
+		doesExist = True
 		if User.objects.filter(email=userInfo['email']):
-			hashed = User.objects.get(email=userInfo['email']).pw_hash
-			hashed = hashed.encode('utf-8')
-			password = userInfo['password']
-			password = password.encode('utf-8')
+			hashed = User.objects.get(email=userInfo['email']).pw_hash.encode()
+			# hashed = hashed.encode()
+			password = userInfo['password'].encode()
+			# password = password.encode()
 			if bcrypt.hashpw(password, hashed) == hashed:
 				messages.success(request, 'Success! Welcome, '+User.objects.get(email=userInfo['email']).first_name+'!')
-				isValid = True
+				doesExist = True
 			else:
 				messages.error(request, 'Invalid password!')
-				isValid = False
+				doesExist = False
 		else:
 			messages.error(request, 'Invalid Email!')
-			isValid = False
-		return isValid
+			doesExist = False
+		return doesExist
 
 
 class User(models.Model):
