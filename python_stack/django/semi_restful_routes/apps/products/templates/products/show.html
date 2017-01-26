@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>{{ title }}</title>
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static 'products/css/skeleton.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'products/css/normalize.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'products/css/styles.css' %}">
+	</head>
+	<body>
+		<h1>{{ product.name }}</h1>
+		<label>Name: {{ product.name }}</label>
+		<label>Description: {{ product.description }}</label>
+		<label>Price: {{ product.price }}</label>
+		<a href="{% url 'products:edit' product.id %}">Edit</a>
+		<a href="{% url 'products:index' %}">Back</a>
+	</body>
+</html>

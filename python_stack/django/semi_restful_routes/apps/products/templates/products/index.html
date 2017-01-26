@@ -21,6 +21,18 @@
 				<th>Price</th>
 				<th>Action</th>
 			</tr>
+			{% if data %}
+				{% for product in data %}
+					<tr>
+						<td>{{ product.name }}</td>
+						<td>{{ product.description }}</td>
+						<td>{{ product.price }}</td>
+						<td><a href="{% url 'products:show' product.id  %}">Show</a></td>
+						<td><a href="{% url 'products:edit' product.id %}">Edit</a></td>
+						<td><a href="{% url 'products:destroy' product.id %}">Delete</a></td>
+					</tr>
+				{% endfor %}
+			{% endif %}
 		</table>
 		<a href="{% url 'products:new' %}">Add a Product</a>
 		{% block body %}{% endblock %}

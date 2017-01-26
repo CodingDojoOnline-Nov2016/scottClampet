@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>{{ title }}</title>
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static 'products/css/skeleton.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'products/css/normalize.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'products/css/styles.css' %}">
+	</head>
+	<body>
+		<form action="{% url 'products:update' product.id %}" method="POST">
+			{% csrf_token %}
+			<h1>{{ product.name }}</h1>
+			<label>Name:</label>
+			<input type="text" name="name" value="{{ product.name }}">
+			<label>Description:</label>
+			<input type="text" name="description" value="{{ product.description }}">
+			<label>Price:</label>
+			<input type="text" name="price" value="{{ product.price }}">
+			<input type="submit" value="UPDATE">
+		</form>
+	</body>
+</html>

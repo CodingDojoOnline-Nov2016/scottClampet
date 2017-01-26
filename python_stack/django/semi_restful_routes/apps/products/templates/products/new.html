@@ -1,11 +1,6 @@
 {% extends "./index.html"%}
 {% block body %}
 	<h5>Add a Product!</h5>
-	{% if messages%}
-		{% for msg in messages %}
-			<p class="errors">{{ msg }}</p>
-		{% endfor %}
-	{% endif %}
 	<div id="add-product">
 		<form action="{% url 'products:create' %}", method="POST">
 		 	{% csrf_token %}
