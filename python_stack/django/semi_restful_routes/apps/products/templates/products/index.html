@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }}</title>
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static 'products/css/skeleton.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'products/css/normalize.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'products/css/styles.css' %}">
+	</head>
+	<body>
+		<h1>Products</h1>
+		{% if messages%}
+			{% for msg in messages %}
+				<p class="errors">{{ msg }}</p>
+			{% endfor %}
+		{% endif %}
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Price</th>
+				<th>Action</th>
+			</tr>
+		</table>
+		<a href="{% url 'products:new' %}">Add a Product</a>
+		{% block body %}{% endblock %}
+	</body>
+</html>
