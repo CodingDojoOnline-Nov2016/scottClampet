@@ -1,26 +1,6 @@
-// Return whether a given integer is prime. 
+// Page 30
+// Return whether a given integer is prime. Prime numbers are only evenly divisible by themselves and 1.
+// Many highly optimized solutions exist, but for now just create one that is easy to understand and debug.
+// Being able to write a T-diagram to keep track of your variables while you write out an algorithm by hand
+// is extremely beneficial. You should use a T-diagram for algorithm challenges this chapter.
 
-function isPrime(num){
-	var count = 0;
-	for(var i = 1; i <= num; i++){
-		if(num % i === 0){
-			count++;
-		}
-	}
-	if(count == 2){
-		console.log("Is Prime");
-	} else {
-		console.log("Hell Nah");
-	}
-}
-
-isPrime(11);
-
-function isPrime2(num){
-	if((num !== 2 && num !== 3) (num === 0 || num === 1 || num % 2 === 0 || num % 3 === 0 || num % 5 === 0 || num % 7 === 0 || num % 11 === 0)){
-		console.log("Not");
-	}
-	return "Yes I am Prime";
-}
-
-isPrime2(13);

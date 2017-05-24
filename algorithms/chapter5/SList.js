@@ -14,6 +14,8 @@ function SList() {
 	this.contains = contains;
 	this.show = show;
 	this.removeValue = removeValue;
+	this.insertAt = insertAt;
+	this.removeAt = removeAt;
 }
 
 function isEmpty() {
@@ -123,7 +125,101 @@ function removeValue(value, int) { //optional int defines how many removals to d
 	return this;
 }
 
-var myList = new SList();
-myList.addBack('z').addFront('a').addBack('b').addBack(1).addBack(1).addBack(1).show();
-myList.removeValue(1).show();
+function insertAt(data, index) {
+	//while, as we iterate do index--
+	var n = new Node(data);
+	if(!index || index < 0) {
+		this.addFront(data);
+	}
+	else if(this.head) {
+		var cur = this.head;
+		index--;
+		while(cur) {
+			if(index > 0) {
+				cur = cur.next;
+				index--;
+			} else {
+				var temp = cur.next;
+				cur.next = n;
+				n.next = temp;
+				break;
+			}
+		}
+		if(index) {
+			this.addBack(data);
+			console.log("index larger than list: added to back");
+		}
+	}
+	return this;
+}
 
+function removeAt(index) {
+	if(index < 0) {
+		index += this.length();
+	}
+	if(this.head) {
+		var cur = this.head;
+		index--;
+		while(cur) {
+			if(index > 0) {
+				cur = cur.next;
+				index --;
+			} else {
+				var temp = cur.next;
+				cur.next = temp.next;
+				temp.next = null;
+				break;
+			}
+		}
+		if(index) {
+			this.removeBack();
+			console.log("index larger than list: removed from back");
+		}
+	}
+	return this;
+}
+
+function removeDuplicates(head) {
+	if(head.next.next) {
+		var cur = head;
+		while(cur) {
+			var runner = cur;
+			while(runner.next) {
+				if(cur.data === runner.next.data) {
+					var temp = runner.next;
+					runner.next = runner.next.next;
+					temp.next = null;
+				} else {
+					runner = runner.next;
+				}
+			}
+			cur = cur.next;
+		}
+	}
+	return head;
+}
+
+function removeDuplicates2(head) {
+	var buffer = {};
+	if(head.next.next) {
+		var cur = head;
+		buffer[cur.data] = true;
+		while(cur.next) {
+			if(buffer[cur.next.data]) {
+				var temp = cur.next;
+				cur.next = cur.next.next;
+				temp.next = null;
+			} else {
+				buffer[cur.next.data] = true;
+				cur = cur.next;
+			}
+		}
+	}
+	console.log(buffer)
+	return head;
+}
+
+var myList = new SList();
+myList.addFront('a').addBack('a').addBack('b').addBack('c').addBack('c').show();
+removeDuplicates2(myList.head)
+myList.show()

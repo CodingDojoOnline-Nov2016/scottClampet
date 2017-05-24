@@ -1,38 +1,60 @@
-// rotate matrix 90degrees to the right
+//BONUS, not in book
+//rotate a matrix 90 degrees to its right
+/* Given [
+	[1,2,3],
+	[4,5,6],
+	[7,8,9]
+	]
+return [
+	[7,4,1],
+	[8,5,2],
+	[9,6,3]
+]*/
+//will always be rectangular matrix, no constraints
+//lvl 2 == in place
 
-function rotateMatrix(array){
-    var newArray = [];
-    // length of each array in (array)
-    var arrayLength = array[0].length;
+function rotateMatrix(matrix, numRotations = 1) {
+	numRotations = numRotations % 4;
+	var result=[];
+	var height = matrix.length;
+	var width = matrix[0].length;
 
-	// pushes an empty list, for each list in array, into newArray
-    for(var i = 0; i < arrayLength; i++){
-        newArray.push([]);
-    };
-    console.log(newArray);
+	for(var i = 0; i < width; i++) {
+		result.push([]);
+	}
 
-    // loops right to left in array, adding relative values left to right to newArray.
-    for(var i = array.length - 1; i >= 0; i--){
-        for(var j = 0; j < arrayLength; j++){
-            newArray[j].push(array[i][j]);
-        };
-    };
+	while(numRotations) {	
+		for(var row = height - 1; row >= 0; row--) {
+			for(var column = 0; column < width; column++) {
+				console.log("column: " + column + " row: " + row + " result[" + column + "][" + ((height - 1) - row) + "] = matrix[" + row + "][" + column + "]"+ "==" + matrix[row][column])
+				result[column][(height - 1) - row] = matrix[row][column];
+			}
+		}
 
-    return(newArray);
+		matrix = [];
+		for(var i = 0; i < result.length; i++) {
+			matrix.push(result[i]);
+		}
+
+		height = matrix.length;
+		width = matrix[0].length;
+		
+		var result=[];
+		for(var i = 0; i < width; i++) {
+			result.push([]);
+		}
+
+		numRotations--;
+		console.log(numRotations + " rotations remaining, current result: ", matrix);
+	}
+	return matrix;
 }
-array1 = [
+
+array = [
 	[1,2,3],
 	[4,5,6],
 	[7,8,9],
 	[10,11,12]
-	]
-  
+]
 
-console.log(rotateMatrix(array1))
-
-
-// should return = [
-// 	[7,4,1],
-// 	[8,5,2],
-// 	[9,6,3]
-// 	]
+console.log(rotateMatrix(array, 10))

@@ -1,22 +1,27 @@
+// Given a string, determine whether the parentheses are valid. i.e. "(())" returns valid and "(()("
+// returns invalid
 
-var str1 = "(())";
-var str2 = "(()(";
-
-function parensValid(str){
-	var parens = 0;
-	for(var i = 0; i < str.length; i++){
-		if(str[i] == '('){
-			parens++;
+function parensValid(string) {
+	parensnum = 0;
+	for (var i = 0; i < string.length; i++) {
+		if(string[i] == '(') {
+			parensnum++;
+		} else if(string[i] == ')') {
+			parensnum--;
 		}
-		else if(str[i] == ')'){
-			parens--;
-		}
-		if(parens < 0){
+		if (parensnum < 0) {
 			return false;
 		}
 	}
-	return !parens; //implies a comparison. Says "Return me whatever (this) evaluate to"
+	return !parensnum; //coerces value into boolean
 }
+
+var str1 = "abc(def)" //true
+var str2 = "(())" //true
+var str3 = "(()(" //false
+var str4 = "))((" //false
 
 console.log(parensValid(str1));
 console.log(parensValid(str2));
+console.log(parensValid(str3));
+console.log(parensValid(str4));
