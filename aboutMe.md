@@ -1,6 +1,3 @@
-##Name:
-Scott Clampet
-##Favorite Activities:
-Discovering/Making Music, Tech. Entrepreneurship, and Food.
-##What I want to get out of the Coding Dojo Boot Camp
-I want to be a self-sufficient developer so that I can achieve higher levels of success in the startup world. 
+#Python
+
+This repo is for all projects built in the Python stack. It includes individual Django, Flask/FlaskSQL, mySQL, and some fundamentals projects as well as some full Python projects. Showcasing my learning process from beginner to Jr. Developer capable.
